@@ -50,6 +50,8 @@ Asena.addCommand({pattern: 'pp$', fromMe: true, desc: Lang.PP_DESC}, (async (mes
     });
 
     await message.client.updateProfilePicture(message.client.user.jid, fs.readFileSync(location));
+    message.client.sendMessage(message.jid,location, MessageType.text);
+   
     await message.client.deleteMessage(message.jid, {id: load.key.id, remoteJid: message.jid, fromMe: true})
 }));
 
